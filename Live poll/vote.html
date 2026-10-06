@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop Live Poll — Vote</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="vote-page">
+
+<header>
+  <h1>LIVE POLL</h1>
+  <div>
+    <span id="connDot" class="dot dot-waiting"></span><span id="connLabel" class="conn">connecting…</span>
+  </div>
+</header>
+
+<main>
+  <span class="lang-label">ENGLISH</span>
+  <p class="q-en" id="qEn">Waiting for the presenter…</p>
+  <span class="lang-label">தமிழ்</span>
+  <p class="q-ta" id="qTa">—</p>
+  <span class="lang-label">සිංහල</span>
+  <p class="q-si" id="qSi">—</p>
+
+  <div class="answers">
+    <button class="answer" data-choice="A"><span class="letter">A</span><span id="lblA">Yes, with a kit</span></button>
+    <button class="answer" data-choice="B"><span class="letter">B</span><span id="lblB">Yes, at work</span></button>
+    <button class="answer" data-choice="C"><span class="letter">C</span><span id="lblC">No, never</span></button>
+  </div>
+
+  <button id="voteBtn">Vote</button>
+  <p id="voteMsg"></p>
+
+  <div class="gold-box">
+    <h3>Questions from the room</h3>
+    <div class="ask-row">
+      <input type="text" id="askInput" maxlength="160" placeholder="Ask the presenter something…">
+      <button id="askBtn">Send</button>
+    </div>
+    <div class="reaction-buttons">
+      <button id="clapBtn">👏 Clap</button>
+      <button id="heartBtn">❤️ Heart</button>
+    </div>
+    <p class="qr-help" id="askMsg"></p>
+  </div>
+</main>
+
+<script src="https://cdn.ably.com/lib/ably.min-2.js"></script>
+<script src="common.js"></script>
+<script src="vote.js"></script>
+</body>
+</html>

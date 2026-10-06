@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop Live Poll — Big Screen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="board-page">
+
+<header>
+  <h1>WORKSHOP LIVE POLL</h1>
+  <div>
+    <span id="connDot" class="dot dot-waiting"></span><span id="connLabel" class="conn">connecting…</span>
+  </div>
+</header>
+
+<div class="board-grid">
+
+  <!-- LEFT: question + bars + totals -->
+  <div>
+    <div class="question-panel">
+      <span class="lang-label">ENGLISH</span>
+      <p class="lang-en" id="qEn">Loading…</p>
+      <span class="lang-label">தமிழ்</span>
+      <p class="lang-ta" id="qTa">—</p>
+      <span class="lang-label">සිංහල</span>
+      <p class="lang-si" id="qSi">—</p>
+    </div>
+
+    <div class="bars">
+      <div class="bar-row" data-choice="A">
+        <div class="bar-letter">A</div>
+        <div class="bar-body">
+          <div class="bar-label" id="lblA">Yes, with a kit</div>
+          <div class="bar-track"><div class="bar-fill" id="fillA"></div></div>
+        </div>
+        <div class="bar-count" id="cntA">0</div>
+      </div>
+      <div class="bar-row" data-choice="B">
+        <div class="bar-letter">B</div>
+        <div class="bar-body">
+          <div class="bar-label" id="lblB">Yes, at work</div>
+          <div class="bar-track"><div class="bar-fill" id="fillB"></div></div>
+        </div>
+        <div class="bar-count" id="cntB">0</div>
+      </div>
+      <div class="bar-row" data-choice="C">
+        <div class="bar-letter">C</div>
+        <div class="bar-body">
+          <div class="bar-label" id="lblC">No, never</div>
+          <div class="bar-track"><div class="bar-fill" id="fillC"></div></div>
+        </div>
+        <div class="bar-count" id="cntC">0</div>
+      </div>
+    </div>
+
+    <div class="totals">
+      <span class="big" id="totalCnt">0</span>
+      <span class="cap">total votes</span>
+      <span id="statusBadge" class="badge open">VOTING OPEN</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: presenter controls -->
+  <div class="sidebar">
+    <div class="card">
+      <h2>Presenter controls</h2>
+      <label for="qInput">Question (English — typed once)</label>
+      <input type="text" id="qInput" placeholder="e.g. Have you used a sensor before?">
+      <label for="aInput">Answer A</label>
+      <input type="text" id="aInput" value="Yes, with a kit">
+      <label for="bInput">Answer B</label>
+      <input type="text" id="bInput" value="Yes, at work">
+      <label for="cInput">Answer C</label>
+      <input type="text" id="cInput" value="No, never">
+      <div>
+        <button class="btn" id="translateBtn">Translate to தமிழ் + සිංහල</button>
+        <button class="btn go" id="setQBtn">Put on screen</button>
+      </div>
+      <label for="taInput">Tamil (auto — can be edited)</label>
+      <input type="text" id="taInput">
+      <label for="siInput">Sinhala (auto — can be edited)</label>
+      <input type="text" id="siInput">
+      <div>
+        <button class="btn go" id="openBtn">Open voting</button>
+        <button class="btn danger" id="closeBtn">Voting closed</button>
+        <button class="btn secondary" id="resetBtn">Reset counts</button>
+      </div>
+      <p class="qr-help" id="setStatus">&nbsp;</p>
+    </div>
+
+    <div class="card">
+      <h2>Phones join here</h2>
+      <div id="qrcode"></div>
+      <div class="qr-url" id="qrUrl"></div>
+      <label for="customUrlInput" style="margin-top:10px;">Phone URL / IP (edit if scanning QR fails)</label>
+      <input type="text" id="customUrlInput" placeholder="e.g. http://192.168.8.151:3000/vote.html">
+      <div class="qr-help" id="qrHelpNote">Scan the QR code, or type the link on your phone.</div>
+    </div>
+
+    <div class="card">
+      <h2>Questions from the room</h2>
+      <ul id="questionList"><li class="empty-note">No questions yet.</li></ul>
+    </div>
+  </div>
+</div>
+
+<div id="reactionLayer"></div>
+
+<script src="https://cdn.ably.com/lib/ably.min-2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="common.js"></script>
+<script src="board.js"></script>
+</body>
+</html>

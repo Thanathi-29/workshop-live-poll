@@ -1,0 +1,12 @@
+{
+  "name": "live-poll-root",
+  "version": "1.0.0",
+  "description": "Real-time workshop polling with QR-code voting and multilingual support",
+  "main": "Live poll/server.js",
+  "scripts": {
+    "start": "node \"Live poll/server.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
